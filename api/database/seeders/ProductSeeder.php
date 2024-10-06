@@ -8,9 +8,6 @@ use Faker\Factory as Faker;
 
 class ProductSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $faker = Faker::create();
@@ -21,6 +18,7 @@ class ProductSeeder extends Seeder
                 'name' => $faker->word,
                 'price' => $faker->numberBetween(100, 10000), // preço em centavos
                 'photo' => $faker->imageUrl(640, 480, 'food', true, 'product'),
+                'type' => $faker->randomElement(['food', 'drink', 'dessert']),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
