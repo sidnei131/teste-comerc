@@ -44,7 +44,7 @@ sail up -d
 
 #### 1.4. Executar as migrations
 ```bash
-sail artisan migrate
+sail artisan migrate --seed
 ```
 
 #### 1.4. Executar os testes
