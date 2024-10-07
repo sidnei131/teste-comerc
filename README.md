@@ -1,6 +1,6 @@
 # teste-comerc
 
-### 1. Instalação da API
+### 1. Instalação da API (back-end)
 
 Acessar o diretório **api**
 ```bash
@@ -47,7 +47,10 @@ sail up -d
 sail artisan migrate --seed
 ```
 
-#### 1.4. Executar os testes
+#### 1.5. Executar os testes
 ```bash
 sail test
 ```
+
+### 2. Instalação WEB (front-end)
+...
