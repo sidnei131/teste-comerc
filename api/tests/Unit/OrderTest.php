@@ -2,11 +2,14 @@
 
 namespace Tests\Unit;
 
+use App\Events\OrderCreated;
+use App\Mail\OrderCreatedMail;
 use App\Models\Customer;
 use Tests\TestCase;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Mail;
 
 class OrderTest extends TestCase
 {
@@ -117,5 +120,18 @@ class OrderTest extends TestCase
 
         $expectedTotalPrice = (3 * 1000) + (2 * 2000);
         $response->assertJson(['total_price' => $expectedTotalPrice]);
+    }
+
+    public function test_can_sends_email_when_order_is_created()
+    {
+        Mail::fake();
+        $customer = Customer::factory()->create();
+        $order = Order::factory()->create(['customer_id' => $customer->id]);
+
+        event(new OrderCreated($order));
+
+        Mail::assertSent(OrderCreatedMail::class, function ($mail) use ($customer) {
+            return $mail->hasTo($customer->email);
+        });
     }
 }
