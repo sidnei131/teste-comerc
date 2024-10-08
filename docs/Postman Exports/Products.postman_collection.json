@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "28d05595-6c54-4193-9c3a-e66f387cc596",
+		"name": "Products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3019920"
+	},
+	"item": [
+		{
+			"name": "List Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/:productID",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						":productID"
+					],
+					"variable": [
+						{
+							"key": "productID",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Pastel de frango\",\n    \"price\": 1200,\n    \"photo\": \"https://via.placeholder.com/640x480.png/000066?text=food+pastel+frango\",\n    \"type\": \"food\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/products",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Pastel de frango\",\n    \"price\": 1200,\n    \"photo\": \"https://via.placeholder.com/640x480.png/000066?text=food+pastel+frango\",\n    \"type\": \"food\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/products/:productID",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						":productID"
+					],
+					"variable": [
+						{
+							"key": "productID",
+							"value": "21"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/:productID",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						":productID"
+					],
+					"variable": [
+						{
+							"key": "productID",
+							"value": "22"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
